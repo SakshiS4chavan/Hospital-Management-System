@@ -1,0 +1,25 @@
+create database hospital;
+use hospital;
+create table patients(id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(200)NOT NULL,
+age INT NOT NULL,
+gender VARCHAR(10) NOT NULL);
+
+create table doctors(id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255)NOT NULL,
+specialization VARCHAR(255)NOT NULL);
+
+create table appointments(id INT AUTO_INCREMENT PRIMARY KEY,
+patient_id INT NOT NULL,
+doctor_id INT NOT NULL,
+appointment_date DATE NOT NULL,
+FOREIGN KEY(patient_id)REFERENCES patients(id),
+FOREIGN KEY(doctor_id)REFERENCES doctor(id));
+
+
+show tables;
+
+INSERT INTO doctors(name,specialization)VALUES("pankaj jain","physician");
+INSERT INTO doctors(name,specialization)VALUES("harshit jadhav","neurosurgen");
+
+select * from doctors;
